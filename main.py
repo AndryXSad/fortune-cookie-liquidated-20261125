@@ -51,6 +51,7 @@ FORTUNE = "You will soon come into money \u2014 the exchange has already come in
 
 MAX_CHARS = 160
 MAX_WORDS = 20
+ENTRY_FILENAME = "entry.txt"
 
 
 def validate(text: str) -> None:
@@ -70,7 +71,7 @@ def main() -> int:
     validate(FORTUNE)
     out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR") or "/output"
     os.makedirs(out_dir, exist_ok=True)
-    path = os.path.join(out_dir, "entry.txt")
+    path = os.path.join(out_dir, ENTRY_FILENAME)
     with open(path, "w", encoding="utf-8", newline="\n") as fh:
         fh.write(FORTUNE + "\n")
     return 0
